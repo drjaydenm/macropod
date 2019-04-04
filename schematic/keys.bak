@@ -1,0 +1,693 @@
+EESchema Schematic File Version 4
+LIBS:macropod-cache
+EELAYER 26 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 2 2
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L Switch:SW_SPST SW1
+U 1 1 5CA5822C
+P 2150 1250
+F 0 "SW1" V 2150 1400 50  0000 C CNN
+F 1 "SW_MK" V 2000 1050 50  0000 C CNN
+F 2 "Button_Switch_Keyboard:SW_Cherry_MX1A_1.00u_Plate" H 2150 1250 50  0001 C CNN
+F 3 "" H 2150 1250 50  0001 C CNN
+	1    2150 1250
+	0    1    1    0   
+$EndComp
+Text HLabel 1500 1050 0    50   Input ~ 0
+ROW0
+$Comp
+L Device:D D1
+U 1 1 5CA889C7
+P 1950 1450
+F 0 "D1" H 1950 1666 50  0000 C CNN
+F 1 "D" H 1950 1575 50  0000 C CNN
+F 2 "Diode_SMD:D_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 1950 1450 50  0001 C CNN
+F 3 "~" H 1950 1450 50  0001 C CNN
+	1    1950 1450
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2150 1450 2100 1450
+Connection ~ 2150 1050
+Wire Wire Line
+	1800 1450 1700 1450
+Text HLabel 1500 1550 0    50   Input ~ 0
+ROW1
+Wire Wire Line
+	1500 1050 2150 1050
+Connection ~ 1700 1450
+Wire Wire Line
+	1700 1450 1700 1950
+Wire Wire Line
+	1500 1550 2150 1550
+Wire Wire Line
+	2150 1050 2850 1050
+Wire Wire Line
+	1700 1000 1700 1450
+$Comp
+L Switch:SW_SPST SW2
+U 1 1 5CA8904E
+P 2150 1750
+F 0 "SW2" V 2150 1900 50  0000 C CNN
+F 1 "SW_MK" V 2000 1550 50  0000 C CNN
+F 2 "Button_Switch_Keyboard:SW_Cherry_MX1A_1.00u_Plate" H 2150 1750 50  0001 C CNN
+F 3 "" H 2150 1750 50  0001 C CNN
+	1    2150 1750
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:D D2
+U 1 1 5CA89054
+P 1950 1950
+F 0 "D2" H 1950 2166 50  0000 C CNN
+F 1 "D" H 1950 2075 50  0000 C CNN
+F 2 "Diode_SMD:D_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 1950 1950 50  0001 C CNN
+F 3 "~" H 1950 1950 50  0001 C CNN
+	1    1950 1950
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2150 1950 2100 1950
+Wire Wire Line
+	1800 1950 1700 1950
+Connection ~ 1700 1950
+Connection ~ 2150 1550
+Wire Wire Line
+	2150 1550 2850 1550
+$Comp
+L Switch:SW_SPST SW3
+U 1 1 5CA89124
+P 2150 2250
+F 0 "SW3" V 2150 2400 50  0000 C CNN
+F 1 "SW_MK" V 2000 2050 50  0000 C CNN
+F 2 "Button_Switch_Keyboard:SW_Cherry_MX1A_1.00u_Plate" H 2150 2250 50  0001 C CNN
+F 3 "" H 2150 2250 50  0001 C CNN
+	1    2150 2250
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:D D3
+U 1 1 5CA8912B
+P 1950 2450
+F 0 "D3" H 1950 2666 50  0000 C CNN
+F 1 "D" H 1950 2575 50  0000 C CNN
+F 2 "Diode_SMD:D_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 1950 2450 50  0001 C CNN
+F 3 "~" H 1950 2450 50  0001 C CNN
+	1    1950 2450
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2150 2450 2100 2450
+Wire Wire Line
+	1800 2450 1700 2450
+$Comp
+L Switch:SW_SPST SW4
+U 1 1 5CA89210
+P 2150 2750
+F 0 "SW4" V 2150 2900 50  0000 C CNN
+F 1 "SW_MK" V 2000 2550 50  0000 C CNN
+F 2 "Button_Switch_Keyboard:SW_Cherry_MX1A_1.00u_Plate" H 2150 2750 50  0001 C CNN
+F 3 "" H 2150 2750 50  0001 C CNN
+	1    2150 2750
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:D D4
+U 1 1 5CA89217
+P 1950 2950
+F 0 "D4" H 1950 3166 50  0000 C CNN
+F 1 "D" H 1950 3075 50  0000 C CNN
+F 2 "Diode_SMD:D_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 1950 2950 50  0001 C CNN
+F 3 "~" H 1950 2950 50  0001 C CNN
+	1    1950 2950
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2150 2950 2100 2950
+Wire Wire Line
+	1800 2950 1700 2950
+$Comp
+L Switch:SW_SPST SW5
+U 1 1 5CA89365
+P 2150 3250
+F 0 "SW5" V 2150 3400 50  0000 C CNN
+F 1 "SW_MK" V 2000 3050 50  0000 C CNN
+F 2 "Button_Switch_Keyboard:SW_Cherry_MX1A_1.00u_Plate" H 2150 3250 50  0001 C CNN
+F 3 "" H 2150 3250 50  0001 C CNN
+	1    2150 3250
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:D D5
+U 1 1 5CA8936C
+P 1950 3450
+F 0 "D5" H 1950 3666 50  0000 C CNN
+F 1 "D" H 1950 3575 50  0000 C CNN
+F 2 "Diode_SMD:D_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 1950 3450 50  0001 C CNN
+F 3 "~" H 1950 3450 50  0001 C CNN
+	1    1950 3450
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2150 3450 2100 3450
+Wire Wire Line
+	1800 3450 1700 3450
+Wire Wire Line
+	1700 1950 1700 2450
+Connection ~ 1700 2450
+Wire Wire Line
+	1700 2450 1700 2950
+Connection ~ 1700 2950
+Wire Wire Line
+	1700 2950 1700 3450
+Wire Wire Line
+	1700 3450 1700 3650
+Connection ~ 1700 3450
+Wire Wire Line
+	2400 1000 2400 1450
+$Comp
+L Switch:SW_SPST SW6
+U 1 1 5CA89A91
+P 2850 1250
+F 0 "SW6" V 2850 1400 50  0000 C CNN
+F 1 "SW_MK" V 2700 1050 50  0000 C CNN
+F 2 "Button_Switch_Keyboard:SW_Cherry_MX1A_1.00u_Plate" H 2850 1250 50  0001 C CNN
+F 3 "" H 2850 1250 50  0001 C CNN
+	1    2850 1250
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:D D6
+U 1 1 5CA89A98
+P 2650 1450
+F 0 "D6" H 2650 1666 50  0000 C CNN
+F 1 "D" H 2650 1575 50  0000 C CNN
+F 2 "Diode_SMD:D_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 2650 1450 50  0001 C CNN
+F 3 "~" H 2650 1450 50  0001 C CNN
+	1    2650 1450
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2850 1450 2800 1450
+Wire Wire Line
+	2500 1450 2400 1450
+Wire Wire Line
+	3100 1000 3100 1450
+$Comp
+L Switch:SW_SPST SW11
+U 1 1 5CA8A15C
+P 3550 1250
+F 0 "SW11" V 3550 1400 50  0000 C CNN
+F 1 "SW_MK" V 3400 1050 50  0000 C CNN
+F 2 "Button_Switch_Keyboard:SW_Cherry_MX1A_1.00u_Plate" H 3550 1250 50  0001 C CNN
+F 3 "" H 3550 1250 50  0001 C CNN
+	1    3550 1250
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:D D11
+U 1 1 5CA8A163
+P 3350 1450
+F 0 "D11" H 3350 1666 50  0000 C CNN
+F 1 "D" H 3350 1575 50  0000 C CNN
+F 2 "Diode_SMD:D_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 3350 1450 50  0001 C CNN
+F 3 "~" H 3350 1450 50  0001 C CNN
+	1    3350 1450
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3550 1450 3500 1450
+Wire Wire Line
+	3200 1450 3100 1450
+Wire Wire Line
+	3800 1000 3800 1450
+$Comp
+L Switch:SW_SPST SW16
+U 1 1 5CA8A447
+P 4250 1250
+F 0 "SW16" V 4250 1400 50  0000 C CNN
+F 1 "SW_MK" V 4100 1050 50  0000 C CNN
+F 2 "Button_Switch_Keyboard:SW_Cherry_MX1A_1.00u_Plate" H 4250 1250 50  0001 C CNN
+F 3 "" H 4250 1250 50  0001 C CNN
+	1    4250 1250
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:D D16
+U 1 1 5CA8A44E
+P 4050 1450
+F 0 "D16" H 4050 1666 50  0000 C CNN
+F 1 "D" H 4050 1575 50  0000 C CNN
+F 2 "Diode_SMD:D_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 4050 1450 50  0001 C CNN
+F 3 "~" H 4050 1450 50  0001 C CNN
+	1    4050 1450
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4250 1450 4200 1450
+Wire Wire Line
+	3900 1450 3800 1450
+Connection ~ 2850 1050
+Wire Wire Line
+	2850 1050 3550 1050
+Connection ~ 2400 1450
+Wire Wire Line
+	2400 1450 2400 1950
+Connection ~ 3100 1450
+Wire Wire Line
+	3100 1450 3100 1950
+Connection ~ 3550 1050
+Wire Wire Line
+	3550 1050 4250 1050
+Connection ~ 4250 1050
+Wire Wire Line
+	4250 1050 4750 1050
+Connection ~ 3800 1450
+Wire Wire Line
+	3800 1450 3800 1950
+Text HLabel 1500 2050 0    50   Input ~ 0
+ROW2
+Wire Wire Line
+	1500 2050 2150 2050
+Text HLabel 1500 2550 0    50   Input ~ 0
+ROW3
+Wire Wire Line
+	1500 2550 2150 2550
+Text HLabel 1500 3050 0    50   Input ~ 0
+ROW4
+Wire Wire Line
+	1500 3050 2150 3050
+Wire Wire Line
+	2150 2050 2850 2050
+Connection ~ 2150 2050
+Wire Wire Line
+	2150 2550 2850 2550
+Connection ~ 2150 2550
+Wire Wire Line
+	2150 3050 2850 3050
+Connection ~ 2150 3050
+Text HLabel 1700 3650 3    50   Input ~ 0
+COL0
+Text HLabel 2400 3650 3    50   Input ~ 0
+COL1
+Text HLabel 3100 3650 3    50   Input ~ 0
+COL2
+Text HLabel 3800 3650 3    50   Input ~ 0
+COL3
+$Comp
+L Switch:SW_SPST SW7
+U 1 1 5CA8E471
+P 2850 1750
+F 0 "SW7" V 2850 1900 50  0000 C CNN
+F 1 "SW_MK" V 2700 1550 50  0000 C CNN
+F 2 "Button_Switch_Keyboard:SW_Cherry_MX1A_1.00u_Plate" H 2850 1750 50  0001 C CNN
+F 3 "" H 2850 1750 50  0001 C CNN
+	1    2850 1750
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:D D7
+U 1 1 5CA8E478
+P 2650 1950
+F 0 "D7" H 2650 2166 50  0000 C CNN
+F 1 "D" H 2650 2075 50  0000 C CNN
+F 2 "Diode_SMD:D_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 2650 1950 50  0001 C CNN
+F 3 "~" H 2650 1950 50  0001 C CNN
+	1    2650 1950
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2850 1950 2800 1950
+Wire Wire Line
+	2500 1950 2400 1950
+$Comp
+L Switch:SW_SPST SW12
+U 1 1 5CA8ECCE
+P 3550 1750
+F 0 "SW12" V 3550 1900 50  0000 C CNN
+F 1 "SW_MK" V 3400 1550 50  0000 C CNN
+F 2 "Button_Switch_Keyboard:SW_Cherry_MX1A_1.00u_Plate" H 3550 1750 50  0001 C CNN
+F 3 "" H 3550 1750 50  0001 C CNN
+	1    3550 1750
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:D D12
+U 1 1 5CA8ECD5
+P 3350 1950
+F 0 "D12" H 3350 2166 50  0000 C CNN
+F 1 "D" H 3350 2075 50  0000 C CNN
+F 2 "Diode_SMD:D_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 3350 1950 50  0001 C CNN
+F 3 "~" H 3350 1950 50  0001 C CNN
+	1    3350 1950
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3550 1950 3500 1950
+Wire Wire Line
+	3200 1950 3100 1950
+$Comp
+L Switch:SW_SPST SW17
+U 1 1 5CA8F61B
+P 4250 1750
+F 0 "SW17" V 4250 1900 50  0000 C CNN
+F 1 "SW_MK" V 4100 1550 50  0000 C CNN
+F 2 "Button_Switch_Keyboard:SW_Cherry_MX1A_1.00u_Plate" H 4250 1750 50  0001 C CNN
+F 3 "" H 4250 1750 50  0001 C CNN
+	1    4250 1750
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:D D17
+U 1 1 5CA8F622
+P 4050 1950
+F 0 "D17" H 4050 2166 50  0000 C CNN
+F 1 "D" H 4050 2075 50  0000 C CNN
+F 2 "Diode_SMD:D_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 4050 1950 50  0001 C CNN
+F 3 "~" H 4050 1950 50  0001 C CNN
+	1    4050 1950
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4250 1950 4200 1950
+Wire Wire Line
+	3900 1950 3800 1950
+$Comp
+L Switch:SW_SPST SW18
+U 1 1 5CA90032
+P 4250 2250
+F 0 "SW18" V 4250 2400 50  0000 C CNN
+F 1 "SW_MK" V 4100 2050 50  0000 C CNN
+F 2 "Button_Switch_Keyboard:SW_Cherry_MX1A_1.00u_Plate" H 4250 2250 50  0001 C CNN
+F 3 "" H 4250 2250 50  0001 C CNN
+	1    4250 2250
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:D D18
+U 1 1 5CA90039
+P 4050 2450
+F 0 "D18" H 4050 2666 50  0000 C CNN
+F 1 "D" H 4050 2575 50  0000 C CNN
+F 2 "Diode_SMD:D_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 4050 2450 50  0001 C CNN
+F 3 "~" H 4050 2450 50  0001 C CNN
+	1    4050 2450
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4250 2450 4200 2450
+Wire Wire Line
+	3900 2450 3800 2450
+$Comp
+L Switch:SW_SPST SW19
+U 1 1 5CA90B38
+P 4250 2750
+F 0 "SW19" V 4250 2900 50  0000 C CNN
+F 1 "SW_MK" V 4100 2550 50  0000 C CNN
+F 2 "Button_Switch_Keyboard:SW_Cherry_MX1A_1.00u_Plate" H 4250 2750 50  0001 C CNN
+F 3 "" H 4250 2750 50  0001 C CNN
+	1    4250 2750
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:D D19
+U 1 1 5CA90B3F
+P 4050 2950
+F 0 "D19" H 4050 3166 50  0000 C CNN
+F 1 "D" H 4050 3075 50  0000 C CNN
+F 2 "Diode_SMD:D_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 4050 2950 50  0001 C CNN
+F 3 "~" H 4050 2950 50  0001 C CNN
+	1    4050 2950
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4250 2950 4200 2950
+Wire Wire Line
+	3900 2950 3800 2950
+$Comp
+L Switch:SW_SPST SW13
+U 1 1 5CA91756
+P 3550 2250
+F 0 "SW13" V 3550 2400 50  0000 C CNN
+F 1 "SW_MK" V 3400 2050 50  0000 C CNN
+F 2 "Button_Switch_Keyboard:SW_Cherry_MX1A_1.00u_Plate" H 3550 2250 50  0001 C CNN
+F 3 "" H 3550 2250 50  0001 C CNN
+	1    3550 2250
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:D D13
+U 1 1 5CA9175D
+P 3350 2450
+F 0 "D13" H 3350 2666 50  0000 C CNN
+F 1 "D" H 3350 2575 50  0000 C CNN
+F 2 "Diode_SMD:D_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 3350 2450 50  0001 C CNN
+F 3 "~" H 3350 2450 50  0001 C CNN
+	1    3350 2450
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3550 2450 3500 2450
+Wire Wire Line
+	3200 2450 3100 2450
+$Comp
+L Switch:SW_SPST SW8
+U 1 1 5CA9249D
+P 2850 2250
+F 0 "SW8" V 2850 2400 50  0000 C CNN
+F 1 "SW_MK" V 2700 2050 50  0000 C CNN
+F 2 "Button_Switch_Keyboard:SW_Cherry_MX1A_1.00u_Plate" H 2850 2250 50  0001 C CNN
+F 3 "" H 2850 2250 50  0001 C CNN
+	1    2850 2250
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:D D8
+U 1 1 5CA924A4
+P 2650 2450
+F 0 "D8" H 2650 2666 50  0000 C CNN
+F 1 "D" H 2650 2575 50  0000 C CNN
+F 2 "Diode_SMD:D_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 2650 2450 50  0001 C CNN
+F 3 "~" H 2650 2450 50  0001 C CNN
+	1    2650 2450
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2850 2450 2800 2450
+Wire Wire Line
+	2500 2450 2400 2450
+$Comp
+L Switch:SW_SPST SW9
+U 1 1 5CA9335F
+P 2850 2750
+F 0 "SW9" V 2850 2900 50  0000 C CNN
+F 1 "SW_MK" V 2700 2550 50  0000 C CNN
+F 2 "Button_Switch_Keyboard:SW_Cherry_MX1A_1.00u_Plate" H 2850 2750 50  0001 C CNN
+F 3 "" H 2850 2750 50  0001 C CNN
+	1    2850 2750
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:D D9
+U 1 1 5CA93366
+P 2650 2950
+F 0 "D9" H 2650 3166 50  0000 C CNN
+F 1 "D" H 2650 3075 50  0000 C CNN
+F 2 "Diode_SMD:D_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 2650 2950 50  0001 C CNN
+F 3 "~" H 2650 2950 50  0001 C CNN
+	1    2650 2950
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2850 2950 2800 2950
+Wire Wire Line
+	2500 2950 2400 2950
+$Comp
+L Switch:SW_SPST SW10
+U 1 1 5CA943A5
+P 2850 3250
+F 0 "SW10" V 2850 3400 50  0000 C CNN
+F 1 "SW_MK" V 2700 3050 50  0000 C CNN
+F 2 "Button_Switch_Keyboard:SW_Cherry_MX1A_1.00u_Plate" H 2850 3250 50  0001 C CNN
+F 3 "" H 2850 3250 50  0001 C CNN
+	1    2850 3250
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:D D10
+U 1 1 5CA943AC
+P 2650 3450
+F 0 "D10" H 2650 3666 50  0000 C CNN
+F 1 "D" H 2650 3575 50  0000 C CNN
+F 2 "Diode_SMD:D_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 2650 3450 50  0001 C CNN
+F 3 "~" H 2650 3450 50  0001 C CNN
+	1    2650 3450
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2850 3450 2800 3450
+Wire Wire Line
+	2500 3450 2400 3450
+$Comp
+L Switch:SW_SPST SW15
+U 1 1 5CA95574
+P 3550 3250
+F 0 "SW15" V 3550 3400 50  0000 C CNN
+F 1 "SW_MK" V 3400 3050 50  0000 C CNN
+F 2 "Button_Switch_Keyboard:SW_Cherry_MX1A_1.00u_Plate" H 3550 3250 50  0001 C CNN
+F 3 "" H 3550 3250 50  0001 C CNN
+	1    3550 3250
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:D D15
+U 1 1 5CA9557B
+P 3350 3450
+F 0 "D15" H 3350 3666 50  0000 C CNN
+F 1 "D" H 3350 3575 50  0000 C CNN
+F 2 "Diode_SMD:D_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 3350 3450 50  0001 C CNN
+F 3 "~" H 3350 3450 50  0001 C CNN
+	1    3350 3450
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3550 3450 3500 3450
+Wire Wire Line
+	3200 3450 3100 3450
+$Comp
+L Switch:SW_SPST SW14
+U 1 1 5CA968A9
+P 3550 2750
+F 0 "SW14" V 3550 2900 50  0000 C CNN
+F 1 "SW_MK" V 3400 2550 50  0000 C CNN
+F 2 "Button_Switch_Keyboard:SW_Cherry_MX1A_1.00u_Plate" H 3550 2750 50  0001 C CNN
+F 3 "" H 3550 2750 50  0001 C CNN
+	1    3550 2750
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:D D14
+U 1 1 5CA968B0
+P 3350 2950
+F 0 "D14" H 3350 3166 50  0000 C CNN
+F 1 "D" H 3350 3075 50  0000 C CNN
+F 2 "Diode_SMD:D_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 3350 2950 50  0001 C CNN
+F 3 "~" H 3350 2950 50  0001 C CNN
+	1    3350 2950
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3550 2950 3500 2950
+Wire Wire Line
+	3200 2950 3100 2950
+Connection ~ 3800 1950
+Wire Wire Line
+	3800 1950 3800 2450
+Connection ~ 3550 1550
+Wire Wire Line
+	3550 1550 4250 1550
+Connection ~ 3100 1950
+Wire Wire Line
+	3100 1950 3100 2450
+Connection ~ 2850 1550
+Wire Wire Line
+	2850 1550 3550 1550
+Connection ~ 2400 1950
+Wire Wire Line
+	2400 1950 2400 2450
+Connection ~ 2400 2450
+Wire Wire Line
+	2400 2450 2400 2950
+Connection ~ 2850 2050
+Wire Wire Line
+	2850 2050 3550 2050
+Connection ~ 3550 2050
+Wire Wire Line
+	3550 2050 4250 2050
+Connection ~ 3100 2450
+Wire Wire Line
+	3100 2450 3100 2950
+Connection ~ 3800 2450
+Wire Wire Line
+	3800 2450 3800 2950
+Connection ~ 3800 2950
+Wire Wire Line
+	3800 2950 3800 3450
+Connection ~ 3550 2550
+Connection ~ 3100 2950
+Wire Wire Line
+	3100 2950 3100 3450
+Connection ~ 2850 2550
+Wire Wire Line
+	2850 2550 3550 2550
+Connection ~ 2400 2950
+Wire Wire Line
+	2400 2950 2400 3450
+Connection ~ 2400 3450
+Wire Wire Line
+	2400 3450 2400 3650
+Connection ~ 2850 3050
+Wire Wire Line
+	2850 3050 3550 3050
+Connection ~ 3100 3450
+Wire Wire Line
+	3100 3450 3100 3650
+Connection ~ 3550 3050
+Wire Wire Line
+	3550 3050 4250 3050
+$Comp
+L Switch:SW_SPST SW20
+U 1 1 5CA9E911
+P 4250 3250
+F 0 "SW20" V 4250 3400 50  0000 C CNN
+F 1 "SW_MK" V 4100 3050 50  0000 C CNN
+F 2 "Button_Switch_Keyboard:SW_Cherry_MX1A_1.00u_Plate" H 4250 3250 50  0001 C CNN
+F 3 "" H 4250 3250 50  0001 C CNN
+	1    4250 3250
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:D D20
+U 1 1 5CA9E918
+P 4050 3450
+F 0 "D20" H 4050 3666 50  0000 C CNN
+F 1 "D" H 4050 3575 50  0000 C CNN
+F 2 "Diode_SMD:D_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 4050 3450 50  0001 C CNN
+F 3 "~" H 4050 3450 50  0001 C CNN
+	1    4050 3450
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4250 3450 4200 3450
+Wire Wire Line
+	3900 3450 3800 3450
+Connection ~ 3800 3450
+Wire Wire Line
+	3800 3450 3800 3650
+Wire Wire Line
+	4250 1550 4750 1550
+Wire Wire Line
+	4250 2050 4750 2050
+Wire Wire Line
+	3550 2550 4250 2550
+Wire Wire Line
+	4250 2550 4750 2550
+Wire Wire Line
+	4250 3050 4750 3050
+Connection ~ 4250 1550
+Connection ~ 4250 2050
+Connection ~ 4250 2550
+Connection ~ 4250 3050
+$EndSCHEMATC
