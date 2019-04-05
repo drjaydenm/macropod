@@ -1,13 +1,15 @@
-| Part                  | Quantity | Part No.         | Price      | Link                                                                                                                                 |
-| --------------------- | -------- | ---------------- | ---------- | ------------------------------------------------------------------------------------------------------------------------------------ |
-| STM32F042K6T6         | 1        | 497-14647-ND     | $4.15      | https://www.digikey.com.au/product-detail/en/stmicroelectronics/STM32F042K6T6/497-14647-ND/4815294                                   |
-| 1N4148W-TP Diode      | 20       | 1N4148WTPMSCT-ND | $0.125     | https://www.digikey.com.au/product-detail/en/micro-commercial-co/1N4148W-TP/1N4148WTPMSCT-ND/717311                                  |
-| Cherry MX Blue        | 20       | MX1A-E1NA        | $10 per 10 | https://mechanicalkeyboards.com/shop/index.php?l=product_detail&p=4450                                                               |
-| DSA Key Caps          | 20       |                  |            | https://www.aliexpress.com/item/MP-1U-DSA-keys-PBT-Blank-Keycap-Mixded-Color-Cherry-MX-switch-keycaps-for-Wired-USB/32847751930.html |
-| LED SMD Blue          | 1        | 732-4982-1-ND    | $0.18      | https://www.digikey.com.au/product-detail/en/wurth-electronics-inc/150080BS75000/732-4982-1-ND/4489910                               |
-| JTAG 10 Pin 1.27mm    | 1        | 609-3695-1-ND    | $1.23      | https://www.digikey.com.au/product-detail/en/amphenol-icc-fci/20021121-00010C4LF/609-3695-1-ND/2209147                               |
-| 5.6Ohm Resistor       | 1        | P5.6ACT-ND       | $0.15      | https://www.digikey.com.au/product-detail/en/panasonic-electronic-components/ERJ-6GEYJ5R6V/P5.6ACT-ND/282468                         |
-| 0.1uF Capacitor       | 3        | 1276-1099-1-ND   | $0.15      | https://www.digikey.com.au/product-detail/en/samsung-electro-mechanics/CL21B104KACNNNC/1276-1099-1-ND/3889185                        |
-| 4.7uF Capacitor       | 2        | 1276-6464-1-ND   | $0.19      | https://www.digikey.com.au/product-detail/en/samsung-electro-mechanics/CL21A475KPFNNNG/1276-6464-1-ND/5958092                        |
-| USB Micro B Connector | 1        | WM11262CT-ND     | $2.35      | https://www.digikey.com.au/product-detail/en/molex/1050171001/WM11262CT-ND/3313406                                                   |
-| 3.3V Regulator        | 1        | 497-17239-1-ND   | $0.66      | https://www.digikey.com.au/product-detail/en/stmicroelectronics/LDL1117S33R/497-17239-1-ND/7102079                                   |
+| Part                  | Quantity | Part No.         | Price        | Link                                                                                                                                 |
+| --------------------- | -------- | ---------------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------------ |
+| STM32F042K6T6         | 1        | 497-14647-ND     | $4.15        | https://www.digikey.com.au/product-detail/en/stmicroelectronics/STM32F042K6T6/497-14647-ND/4815294                                   |
+| 1N4148W-TP Diode      | 20       | 1N4148WTPMSCT-ND | $0.125       | https://www.digikey.com.au/product-detail/en/micro-commercial-co/1N4148W-TP/1N4148WTPMSCT-ND/717311                                  |
+| Cherry MX Blue        | 20       | MX1A-E1NA        | $10 per 10   | https://mechanicalkeyboards.com/shop/index.php?l=product_detail&p=4450                                                               |
+| DSA Key Caps          | 20       |                  |              | https://www.aliexpress.com/item/MP-1U-DSA-keys-PBT-Blank-Keycap-Mixded-Color-Cherry-MX-switch-keycaps-for-Wired-USB/32847751930.html |
+| LED SMD Blue          | 1        | 732-4982-1-ND    | $0.18        | https://www.digikey.com.au/product-detail/en/wurth-electronics-inc/150080BS75000/732-4982-1-ND/4489910                               |
+| JTAG 10 Pin 1.27mm    | 1        | 609-3695-1-ND    | $1.23        | https://www.digikey.com.au/product-detail/en/amphenol-icc-fci/20021121-00010C4LF/609-3695-1-ND/2209147                               |
+| 5.6Ohm Resistor       | 1        | P5.6ACT-ND       | $0.15        | https://www.digikey.com.au/product-detail/en/panasonic-electronic-components/ERJ-6GEYJ5R6V/P5.6ACT-ND/282468                         |
+| 0.1uF Capacitor       | 3        | 1276-1099-1-ND   | $0.15        | https://www.digikey.com.au/product-detail/en/samsung-electro-mechanics/CL21B104KACNNNC/1276-1099-1-ND/3889185                        |
+| 4.7uF Capacitor       | 2        | 1276-6464-1-ND   | $0.19        | https://www.digikey.com.au/product-detail/en/samsung-electro-mechanics/CL21A475KPFNNNG/1276-6464-1-ND/5958092                        |
+| USB Micro B Connector | 1        | WM11262CT-ND     | $2.35        | https://www.digikey.com.au/product-detail/en/molex/1050171001/WM11262CT-ND/3313406                                                   |
+| 3.3V Regulator        | 1        | 497-17239-1-ND   | $0.66        | https://www.digikey.com.au/product-detail/en/stmicroelectronics/LDL1117S33R/497-17239-1-ND/7102079                                   |
+| Tactile Switch        | 1        | SW1020CT-ND      | $1.47        | https://www.digikey.com.au/product-detail/en/omron-electronics-inc-emc-div/B3U-1000P/SW1020CT-ND/1534357                             |
+| Bumper Feet           | 4        | SJ5003-0-ND      | $7.83 per 56 | https://www.digikey.com.au/product-detail/en/3m/SJ-5003-BLACK/SJ5003-0-ND/102573                                                     |
