@@ -535,4 +535,6 @@ F 3 "~" H 5100 5050 50  0001 C CNN
 	1    5100 5050
 	0    -1   -1   0   
 $EndComp
+Text Label 5100 4400 2    50   ~ 0
+PWR_LED
 $EndSCHEMATC
