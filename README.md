@@ -38,11 +38,25 @@ Inspect memory layout of image
 arm-none-eabi-nm main.elf
 ```
 
-## Debugging
+## Debugging with GDB
 
-Using GDB - ensure `st-util` is running
+### ST-Link GDB Server
 
 ``` {.bash}
+st-util
+```
+
+### J-Link GDB Server
+
+``` {.bash}
+JLinkGDBServer -if swd -device STM32F042K6 -port 4242
+```
+
+### GDB
+
+``` {.bash}
+cd ./code
+
 arm-none-eabi-gdb main.elf
 
 target extended-remote :4242
