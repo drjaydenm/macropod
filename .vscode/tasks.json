@@ -30,9 +30,20 @@
             }
         },
         {
-            "label": "Flash",
+            "label": "Flash ST-Link",
             "type": "shell",
-            "command": "make flash",
+            "command": "make flash-stlink",
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "options": {
+                "cwd": "${workspaceRoot}/code"
+            }
+        },
+        {
+            "label": "Flash J-Link",
+            "type": "shell",
+            "command": "make flash-jlink",
             "problemMatcher": [
                 "$gcc"
             ],

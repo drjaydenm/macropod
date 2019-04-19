@@ -5,13 +5,23 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Debug ST-Util",
+            "name": "Debug ST-Link",
             "cwd": "${workspaceRoot}/code",
             "executable": "./main.elf",
             "request": "launch",
             "type": "cortex-debug",
             "servertype": "stutil",
             "svdFile": "${workspaceRoot}/code/svd/STM32F042x.svd"
+        },
+        {
+            "name": "Debug J-Link",
+            "cwd": "${workspaceRoot}/code",
+            "executable": "./main.elf",
+            "request": "launch",
+            "type": "cortex-debug",
+            "servertype": "jlink",
+            "svdFile": "${workspaceRoot}/code/svd/STM32F042x.svd",
+            "device": "STM32F042K6"
         }
     ]
 }

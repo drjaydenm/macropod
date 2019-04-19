@@ -103,9 +103,19 @@ clean:
 	rm -f $(TARGET).elf
 	rm -f $(TARGET).bin
 
-flash:
+flash-stlink:
 	st-flash erase 
 	st-flash write $(TARGET).bin $(IMG_START)
+
+flash-jlink:
+	openocd -c "source [find interface/jlink.cfg]" \
+		-c "transport select swd" \
+		-c "source [find target/stm32f1x.cfg]" \
+		-c "init" \
+		-c "reset halt" \
+		-c "flash write_image erase main.bin 0x08000000" \
+		-c "reset run" \
+		-c "exit"
 
 reset:
 	st-flash reset
