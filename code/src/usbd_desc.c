@@ -50,13 +50,13 @@
 
 /* Private typedef -----------------------------------------------------------*/
 /* Private define ------------------------------------------------------------*/
-#define USBD_VID                      0x0483
-#define USBD_PID                      0x5710
-#define USBD_LANGID_STRING            0x409
-#define USBD_MANUFACTURER_STRING      "JaydenM"
-#define USBD_PRODUCT_FS_STRING        "HID Test Device"
-#define USBD_CONFIGURATION_FS_STRING  "HID Test Config"
-#define USBD_INTERFACE_FS_STRING      "HID Test Interface"
+#define USBD_VID                      0x0b38
+#define USBD_PID                      0x0003
+#define USBD_LANGID_STRING            0x0409
+#define USBD_MANUFACTURER_STRING      "Jayden Meyer"
+#define USBD_PRODUCT_FS_STRING        "Macropod"
+#define USBD_CONFIGURATION_FS_STRING  "Macropod Config"
+#define USBD_INTERFACE_FS_STRING      "Macropod Interface"
 
 /* Private macro -------------------------------------------------------------*/
 /* Private function prototypes -----------------------------------------------*/
