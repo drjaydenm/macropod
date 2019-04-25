@@ -29,7 +29,6 @@ KeyState;
 typedef struct
 {
     uint8_t Key;
-    GPIOPin Pin;
     KeyState State;
     uint32_t StateChangeMillis;
 }
@@ -37,10 +36,10 @@ KeyboardKey;
 
 __ALIGN_BEGIN uint8_t _reportBuffer[REPORT_BUF_SIZE] __ALIGN_END;
 USBD_HandleTypeDef USBD_Device;
-extern KeyboardKey keys[];
-const int keyCount;
+uint8_t AnyKeyDown;
 
 void SetupKeyboard();
+void ScanKeyboard();
 void UpdateKeyboard();
 void ScanKeys();
 void BeginMacroKey(KeyboardKey key);

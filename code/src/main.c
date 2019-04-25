@@ -6,33 +6,24 @@ int main()
 
     SystemClockConfig();
 
-    SetupKeyboard();
     SetupGPIO();
+    SetupKeyboard();
 
-    int flashDelay = 0;
+    uint32_t lastFlashMillis = HAL_GetTick();
+    uint32_t flashMillis = FLASH_MILLIS;
     while (1)
     {
+        ScanKeyboard();
         UpdateKeyboard();
 
-        if (flashDelay >= 10000)
-        {
-            flashDelay = 0;
-            HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_3);
-        }
+        flashMillis = AnyKeyDown == 1 ? QUICK_FLASH_MILLIS : FLASH_MILLIS;
 
-        for (int i = 0; i < keyCount; i++)
+        uint32_t millis = HAL_GetTick();
+        if (millis - lastFlashMillis >= flashMillis)
         {
-            if (!HAL_GPIO_ReadPin(keys[i].Pin.Port, keys[i].Pin.Pin))
-            {
-                HAL_GPIO_WritePin(statusLeds[i].Port, statusLeds[i].Pin, GPIO_PIN_SET);
-            }
-            else
-            {
-                HAL_GPIO_WritePin(statusLeds[i].Port, statusLeds[i].Pin, GPIO_PIN_RESET);
-            }
+            lastFlashMillis = millis;
+            HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_10);
         }
-
-        flashDelay += 1;
     }
 }
 
@@ -48,20 +39,9 @@ void SetupGPIO()
     GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
     GPIO_InitStruct.Pull = GPIO_PULLUP;
     GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_HIGH;
-    GPIO_InitStruct.Pin = GPIO_PIN_3;
+    GPIO_InitStruct.Pin = GPIO_PIN_10;
 
-    HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
-
-    // Configure the output LEDs
-    for (int i = 0; i < statusLedsCount; i++)
-    {
-        GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
-        GPIO_InitStruct.Pull = GPIO_PULLUP;
-        GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_HIGH;
-        GPIO_InitStruct.Pin = statusLeds[i].Pin;
-
-        HAL_GPIO_Init(statusLeds[i].Port, &GPIO_InitStruct);
-    }
+    HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 }
 
 void SystemClockConfig(void)

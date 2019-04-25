@@ -1,15 +1,53 @@
 #include "keyboard.h"
 
+GPIOPin rows[] =
+{
+    { GPIOB, GPIO_PIN_0 },
+    { GPIOB, GPIO_PIN_1 },
+    { GPIOB, GPIO_PIN_3 },
+    { GPIOB, GPIO_PIN_4 },
+    { GPIOB, GPIO_PIN_5 }
+};
+const uint8_t rowCount = sizeof(rows) / sizeof(rows[0]);
+GPIOPin columns[] =
+{
+    { GPIOA, GPIO_PIN_0 },
+    { GPIOA, GPIO_PIN_1 },
+    { GPIOA, GPIO_PIN_2 },
+    { GPIOA, GPIO_PIN_3 }
+};
+const uint8_t columnCount = sizeof(columns) / sizeof(columns[0]);
+
 KeyboardKey keys[] =
 {
-    { KEY_A, { GPIOA, GPIO_PIN_0 }, KEY_STATE_UP },
-    { KEY_B, { GPIOA, GPIO_PIN_1 }, KEY_STATE_UP },
-    { KEY_C, { GPIOA, GPIO_PIN_3 }, KEY_STATE_UP },
-    { KEY_MACRO_0, { GPIOA, GPIO_PIN_4 }, KEY_STATE_UP }
+    // Row 0
+    { KEY_MACRO_0, KEY_STATE_UP },
+    { KEY_A, KEY_STATE_UP },
+    { KEY_B, KEY_STATE_UP },
+    { KEY_C, KEY_STATE_UP },
+    // Row 1
+    { KEY_D, KEY_STATE_UP },
+    { KEY_NONE, KEY_STATE_UP },
+    { KEY_NONE, KEY_STATE_UP },
+    { KEY_G, KEY_STATE_UP },
+    // Row 2
+    { KEY_H, KEY_STATE_UP },
+    { KEY_NONE, KEY_STATE_UP },
+    { KEY_NONE, KEY_STATE_UP },
+    { KEY_NONE, KEY_STATE_UP },
+    // Row 3
+    { KEY_L, KEY_STATE_UP },
+    { KEY_NONE, KEY_STATE_UP },
+    { KEY_NONE, KEY_STATE_UP },
+    { KEY_NONE, KEY_STATE_UP },
+    // Row 4
+    { KEY_P, KEY_STATE_UP },
+    { KEY_NONE, KEY_STATE_UP },
+    { KEY_NONE, KEY_STATE_UP },
+    { KEY_NONE, KEY_STATE_UP }
 };
-const int keyCount = sizeof(keys) / sizeof(keys[0]);
+const uint8_t keyCount = sizeof(keys) / sizeof(keys[0]);
 
-uint8_t anyKeyDown = 0;
 uint8_t macroKeyDown = 0;
 uint8_t macroStep = 0;
 uint8_t macroCount = 0;
@@ -20,29 +58,43 @@ char macroContent[100] = {0};
 void SetupKeyboard() {
     static GPIO_InitTypeDef GPIO_InitStruct;
 
+    AnyKeyDown = 0;
+
     USBD_Init(&USBD_Device, &HID_Desc, 0);
     USBD_RegisterClass(&USBD_Device, &USBD_HID);
     USBD_Start(&USBD_Device);
     
-    // Configure the key pins for input
-    for (int i = 0; i < keyCount; i++)
+    // Configure the scan line pins for input
+    for (int i = 0; i < rowCount; i++)
     {
         GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
         GPIO_InitStruct.Pull = GPIO_PULLUP;
-        GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_HIGH;
-        GPIO_InitStruct.Pin = keys[i].Pin.Pin;
+        GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+        GPIO_InitStruct.Pin = rows[i].Pin;
 
-        HAL_GPIO_Init(keys[i].Pin.Port, &GPIO_InitStruct);
+        HAL_GPIO_Init(rows[i].Port, &GPIO_InitStruct);
+    }
+    for (int i = 0; i < columnCount; i++)
+    {
+        GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+        GPIO_InitStruct.Pull = GPIO_PULLUP;
+        GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+        GPIO_InitStruct.Pin = columns[i].Pin;
+
+        HAL_GPIO_Init(columns[i].Port, &GPIO_InitStruct);
+        HAL_GPIO_WritePin(columns[i].Port, columns[i].Pin, GPIO_PIN_SET);
     }
 }
 
-void UpdateKeyboard() {
-    // Only scan for key states if we aren'y processing a macro
+void ScanKeyboard() {
+    // Only scan for key states if we aren't processing a macro
     if (!macroKeyDown)
     {
         ScanKeys();
     }
+}
 
+void UpdateKeyboard() {
     if (macroKeyDown)
     {
         HandleMacroKey();
@@ -56,30 +108,45 @@ void UpdateKeyboard() {
 void ScanKeys()
 {
     uint32_t millis = HAL_GetTick();
-    anyKeyDown = 0;
+    uint8_t keyIndex = 0;
+    AnyKeyDown = 0;
 
-    for (int i = 0; i < keyCount; i++)
+    for (uint8_t i = 0; i < columnCount; i++)
     {
-        uint8_t pinState = HAL_GPIO_ReadPin(keys[i].Pin.Port, keys[i].Pin.Pin);
-        if (pinState != keys[i].State)
+        HAL_GPIO_WritePin(columns[i].Port, columns[i].Pin, GPIO_PIN_RESET);
+
+        for (uint8_t j = 0; j < rowCount; j++)
         {
-            if (millis - keys[i].StateChangeMillis > DEBOUNCE_MILLIS)
+            keyIndex = (columnCount * j) + i;
+
+            if (keys[keyIndex].Key == KEY_NONE)
             {
-                keys[i].State = pinState;
-                keys[i].StateChangeMillis = millis;
+                continue;
+            }
+
+            KeyState keyState = HAL_GPIO_ReadPin(rows[j].Port, rows[j].Pin);
+            if (keyState != keys[keyIndex].State)
+            {
+                if (millis - keys[keyIndex].StateChangeMillis > DEBOUNCE_MILLIS)
+                {
+                    keys[keyIndex].State = keyState;
+                    keys[keyIndex].StateChangeMillis = millis;
+                }
+            }
+
+            if (keys[keyIndex].State == KEY_STATE_DOWN)
+            {
+                AnyKeyDown = 1;
+            }
+
+            if ((keys[keyIndex].Key == KEY_MACRO_0 || keys[keyIndex].Key == KEY_MACRO_1)
+                && keys[keyIndex].State == KEY_STATE_DOWN)
+            {
+                BeginMacroKey(keys[keyIndex]);
             }
         }
 
-        if (keys[i].State == KEY_STATE_DOWN)
-        {
-            anyKeyDown = 1;
-        }
-
-        if ((keys[i].Key == KEY_MACRO_0 || keys[i].Key == KEY_MACRO_1)
-            && keys[i].State == KEY_STATE_DOWN)
-        {
-            BeginMacroKey(keys[i]);
-        }
+        HAL_GPIO_WritePin(columns[i].Port, columns[i].Pin, GPIO_PIN_SET);
     }
 }
 
@@ -111,7 +178,7 @@ void HandleStandardKeys()
     uint8_t currentReportKey = 0;
     HIDKeyboardReport report = {0};
 
-    if (!anyKeyDown)
+    if (!AnyKeyDown)
     {
         SendNullReport();
         return;

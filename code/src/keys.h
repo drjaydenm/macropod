@@ -4,7 +4,7 @@
 #include <stdint.h>
 
 // Take a look at Page 53 https://www.usb.org/sites/default/files/documents/hut1_12v2.pdf
-#define KEY_NO_EVENT        ((uint8_t)0x00)
+#define KEY_NONE            ((uint8_t)0x00)
 #define KEY_ERROR_ROLL_OVER ((uint8_t)0x01)
 #define KEY_POST_FAIL       ((uint8_t)0x02)
 #define KEY_ERROR_UNDEFINED ((uint8_t)0x03)

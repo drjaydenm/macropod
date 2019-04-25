@@ -14,16 +14,10 @@
 #include "gpio_pin.h"
 #include "keyboard.h"
 
+#define FLASH_MILLIS 500
+#define QUICK_FLASH_MILLIS 50
+
 void SetupGPIO();
 void SystemClockConfig(void);
-
-GPIOPin statusLeds[] =
-{
-    { GPIOF, GPIO_PIN_0 },
-    { GPIOF, GPIO_PIN_1 },
-    { GPIOA, GPIO_PIN_8 },
-    { GPIOB, GPIO_PIN_5 },
-};
-int statusLedsCount = sizeof(statusLeds) / sizeof(statusLeds[0]);
 
 #endif
