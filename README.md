@@ -14,9 +14,15 @@ The toolchain is required to compile for the STM32 target platform
 brew tap osx-cross/arm
 
 brew install arm-gcc-bin
+```
 
+If you are using ST-Link
+
+``` {.bash}
 brew install stlink
 ```
+
+If using J-Link, you also need to install the J-Link tools. You can download them from Segger here https://www.segger.com/downloads/jlink/#J-LinkSoftwareAndDocumentationPack
 
 ## Building
 
@@ -26,10 +32,16 @@ Run the build
 make
 ```
 
-Flash to device
+Flash to device using ST-Link
 
 ``` {.bash}
-make flash
+make flash-stlink
+```
+
+or using J-Link
+
+``` {.bash}
+make flash-jlink
 ```
 
 Inspect memory layout of image
