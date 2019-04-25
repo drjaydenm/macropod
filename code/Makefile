@@ -113,7 +113,7 @@ flash-jlink:
 		-c "source [find target/stm32f1x.cfg]" \
 		-c "init" \
 		-c "reset halt" \
-		-c "flash write_image erase main.bin 0x08000000" \
+		-c "flash write_image erase main.elf" \
 		-c "reset run" \
 		-c "exit"
 
