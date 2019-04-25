@@ -22,29 +22,29 @@ KeyboardKey keys[] =
 {
     // Row 0
     { KEY_MACRO_0, KEY_STATE_UP },
-    { KEY_A, KEY_STATE_UP },
-    { KEY_B, KEY_STATE_UP },
-    { KEY_C, KEY_STATE_UP },
+    { KEY_MACRO_1, KEY_STATE_UP },
+    { KEY_MACRO_2, KEY_STATE_UP },
+    { KEY_MACRO_3, KEY_STATE_UP },
     // Row 1
-    { KEY_D, KEY_STATE_UP },
-    { KEY_NONE, KEY_STATE_UP },
-    { KEY_NONE, KEY_STATE_UP },
-    { KEY_G, KEY_STATE_UP },
+    { KEY_MACRO_4, KEY_STATE_UP },
+    { KEY_MACRO_5, KEY_STATE_UP },
+    { KEY_MACRO_6, KEY_STATE_UP },
+    { KEY_MACRO_7, KEY_STATE_UP },
     // Row 2
-    { KEY_H, KEY_STATE_UP },
-    { KEY_NONE, KEY_STATE_UP },
-    { KEY_NONE, KEY_STATE_UP },
-    { KEY_NONE, KEY_STATE_UP },
+    { KEY_MACRO_8, KEY_STATE_UP },
+    { KEY_MACRO_9, KEY_STATE_UP },
+    { KEY_MACRO_10, KEY_STATE_UP },
+    { KEY_MACRO_11, KEY_STATE_UP },
     // Row 3
-    { KEY_L, KEY_STATE_UP },
-    { KEY_NONE, KEY_STATE_UP },
-    { KEY_NONE, KEY_STATE_UP },
-    { KEY_NONE, KEY_STATE_UP },
+    { KEY_MACRO_12, KEY_STATE_UP },
+    { KEY_MACRO_13, KEY_STATE_UP },
+    { KEY_MACRO_14, KEY_STATE_UP },
+    { KEY_MACRO_15, KEY_STATE_UP },
     // Row 4
-    { KEY_P, KEY_STATE_UP },
-    { KEY_NONE, KEY_STATE_UP },
-    { KEY_NONE, KEY_STATE_UP },
-    { KEY_NONE, KEY_STATE_UP }
+    { KEY_MACRO_16, KEY_STATE_UP },
+    { KEY_MACRO_17, KEY_STATE_UP },
+    { KEY_MACRO_18, KEY_STATE_UP },
+    { KEY_MACRO_19, KEY_STATE_UP }
 };
 const uint8_t keyCount = sizeof(keys) / sizeof(keys[0]);
 
@@ -53,7 +53,7 @@ uint8_t macroStep = 0;
 uint8_t macroCount = 0;
 uint8_t macroNextKeySame = 0;
 uint32_t macroMillis = 0;
-char macroContent[100] = {0};
+char macroContent[MACRO_BUFFER_SIZE] = {0};
 
 void SetupKeyboard() {
     static GPIO_InitTypeDef GPIO_InitStruct;
@@ -119,11 +119,6 @@ void ScanKeys()
         {
             keyIndex = (columnCount * j) + i;
 
-            if (keys[keyIndex].Key == KEY_NONE)
-            {
-                continue;
-            }
-
             KeyState keyState = HAL_GPIO_ReadPin(rows[j].Port, rows[j].Pin);
             if (keyState != keys[keyIndex].State)
             {
@@ -139,8 +134,7 @@ void ScanKeys()
                 AnyKeyDown = 1;
             }
 
-            if ((keys[keyIndex].Key == KEY_MACRO_0 || keys[keyIndex].Key == KEY_MACRO_1)
-                && keys[keyIndex].State == KEY_STATE_DOWN)
+            if (IS_MACRO_KEY(keys[keyIndex].Key) && keys[keyIndex].State == KEY_STATE_DOWN)
             {
                 BeginMacroKey(keys[keyIndex]);
             }
@@ -155,11 +149,7 @@ void BeginMacroKey(KeyboardKey key)
     macroKeyDown = key.Key;
     macroMillis = HAL_GetTick();
 
-    // Generate the output for the macrow
-    if (key.Key == KEY_MACRO_0)
-    {
-        macroCount = GenerateGuid(macroContent);
-    }
+    macroCount = GetKeyContent(key.Key, macroContent);
 }
 
 void EndMacroKey()
@@ -170,7 +160,7 @@ void EndMacroKey()
     macroNextKeySame = 0;
 
     // Zero out the macro content
-    memset(macroContent, 0, 100);
+    memset(macroContent, 0, MACRO_BUFFER_SIZE);
 }
 
 void HandleStandardKeys()
@@ -217,6 +207,7 @@ void HandleMacroKey()
 
     if (!macroNextKeySame && macroStep < macroCount && currentTick - macroMillis > MACRO_KEY_DELAY)
     {
+        report.Modifiers = CharModifierKeys(macroContent[macroStep]);
         report.Keys[0] = CharToKeyCode(macroContent[macroStep]);
         SendReport(&report);
 
@@ -235,7 +226,11 @@ void HandleMacroKey()
     if (macroStep >= macroCount)
     {
         SendNullReport();
-        EndMacroKey();
+
+        if (currentTick - macroMillis > POST_MACRO_DELAY)
+        {
+            EndMacroKey();
+        }
     }
 }
 

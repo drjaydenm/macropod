@@ -2,7 +2,86 @@
 #define __KEYS_H
 
 #include <stdint.h>
+#include <ctype.h>
+#include "macros.h"
 
+#ifdef KEY_MAPPINGS_DEFINED
+    #include "key_mappings.h"
+#endif
+
+#ifndef MACRO_KEY_0
+    #define MACRO_KEY_0 0
+#endif
+#ifndef MACRO_KEY_1
+    #define MACRO_KEY_1 0
+#endif
+#ifndef MACRO_KEY_2
+    #define MACRO_KEY_2 0
+#endif
+#ifndef MACRO_KEY_3
+    #define MACRO_KEY_3 0
+#endif
+#ifndef MACRO_KEY_4
+    #define MACRO_KEY_4 0
+#endif
+#ifndef MACRO_KEY_5
+    #define MACRO_KEY_5 0
+#endif
+#ifndef MACRO_KEY_6
+    #define MACRO_KEY_6 0
+#endif
+#ifndef MACRO_KEY_7
+    #define MACRO_KEY_7 0
+#endif
+#ifndef MACRO_KEY_8
+    #define MACRO_KEY_8 0
+#endif
+#ifndef MACRO_KEY_9
+    #define MACRO_KEY_9 0
+#endif
+#ifndef MACRO_KEY_10
+    #define MACRO_KEY_10 0
+#endif
+#ifndef MACRO_KEY_11
+    #define MACRO_KEY_11 0
+#endif
+#ifndef MACRO_KEY_12
+    #define MACRO_KEY_12 0
+#endif
+#ifndef MACRO_KEY_13
+    #define MACRO_KEY_13 0
+#endif
+#ifndef MACRO_KEY_14
+    #define MACRO_KEY_14 0
+#endif
+#ifndef MACRO_KEY_15
+    #define MACRO_KEY_15 0
+#endif
+#ifndef MACRO_KEY_16
+    #define MACRO_KEY_16 0
+#endif
+#ifndef MACRO_KEY_17
+    #define MACRO_KEY_17 0
+#endif
+#ifndef MACRO_KEY_18
+    #define MACRO_KEY_18 0
+#endif
+#ifndef MACRO_KEY_19
+    #define MACRO_KEY_19 0
+#endif
+
+// Modifier key codes
+#define KEY_MOD_NONE   0x00
+#define KEY_MOD_LCTRL  0x01
+#define KEY_MOD_LSHIFT 0x02
+#define KEY_MOD_LALT   0x04
+#define KEY_MOD_LMETA  0x08
+#define KEY_MOD_RCTRL  0x10
+#define KEY_MOD_RSHIFT 0x20
+#define KEY_MOD_RALT   0x40
+#define KEY_MOD_RMETA  0x80
+
+// Key scan codes
 // Take a look at Page 53 https://www.usb.org/sites/default/files/documents/hut1_12v2.pdf
 #define KEY_NONE            ((uint8_t)0x00)
 #define KEY_ERROR_ROLL_OVER ((uint8_t)0x01)
@@ -129,6 +208,8 @@
 #define KEY_F23 ((uint8_t)0x72)
 #define KEY_F24 ((uint8_t)0x73)
 
+#define KEY_KEYPAD_AT  ((uint8_t)0xCE)
+
 #define KEY_LEFTCTRL   ((uint8_t)0xE0)
 #define KEY_LEFTSHIFT  ((uint8_t)0xE1)
 #define KEY_LEFTALT    ((uint8_t)0xE2)
@@ -140,7 +221,48 @@
 
 #define KEY_MACRO_0  ((uint8_t)0xA0)
 #define KEY_MACRO_1  ((uint8_t)0xA1)
+#define KEY_MACRO_2  ((uint8_t)0xA2)
+#define KEY_MACRO_3  ((uint8_t)0xA3)
+#define KEY_MACRO_4  ((uint8_t)0xA4)
+#define KEY_MACRO_5  ((uint8_t)0xA5)
+#define KEY_MACRO_6  ((uint8_t)0xA6)
+#define KEY_MACRO_7  ((uint8_t)0xA7)
+#define KEY_MACRO_8  ((uint8_t)0xA8)
+#define KEY_MACRO_9  ((uint8_t)0xA9)
+#define KEY_MACRO_10 ((uint8_t)0xAA)
+#define KEY_MACRO_11 ((uint8_t)0xAB)
+#define KEY_MACRO_12 ((uint8_t)0xAC)
+#define KEY_MACRO_13 ((uint8_t)0xAD)
+#define KEY_MACRO_14 ((uint8_t)0xAE)
+#define KEY_MACRO_15 ((uint8_t)0xAF)
+#define KEY_MACRO_16 ((uint8_t)0xB0)
+#define KEY_MACRO_17 ((uint8_t)0xB1)
+#define KEY_MACRO_18 ((uint8_t)0xB2)
+#define KEY_MACRO_19 ((uint8_t)0xB3)
+
+#define IS_MACRO_KEY(__KEY__) (((__KEY__) == KEY_MACRO_0) ||\
+                              ((__KEY__) == KEY_MACRO_1)  ||\
+                              ((__KEY__) == KEY_MACRO_2)  ||\
+                              ((__KEY__) == KEY_MACRO_3)  ||\
+                              ((__KEY__) == KEY_MACRO_4)  ||\
+                              ((__KEY__) == KEY_MACRO_5)  ||\
+                              ((__KEY__) == KEY_MACRO_6)  ||\
+                              ((__KEY__) == KEY_MACRO_7)  ||\
+                              ((__KEY__) == KEY_MACRO_8)  ||\
+                              ((__KEY__) == KEY_MACRO_9)  ||\
+                              ((__KEY__) == KEY_MACRO_10) ||\
+                              ((__KEY__) == KEY_MACRO_11) ||\
+                              ((__KEY__) == KEY_MACRO_12) ||\
+                              ((__KEY__) == KEY_MACRO_13) ||\
+                              ((__KEY__) == KEY_MACRO_14) ||\
+                              ((__KEY__) == KEY_MACRO_15) ||\
+                              ((__KEY__) == KEY_MACRO_16) ||\
+                              ((__KEY__) == KEY_MACRO_17) ||\
+                              ((__KEY__) == KEY_MACRO_18) ||\
+                              ((__KEY__) == KEY_MACRO_19))
 
 uint8_t CharToKeyCode(char c);
+uint8_t CharModifierKeys(char c);
+uint8_t GetKeyContent(uint8_t key, char* buffer);
 
 #endif

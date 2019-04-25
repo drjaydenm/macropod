@@ -48,6 +48,10 @@ CFLAGS += -std=c99
 CFLAGS += -D$(MCU_DEF)
 CFLAGS += -DMCU_CLASS_$(MCU_CLASS)
 
+ifeq ($(shell test -f ./src/key_mappings.h && echo "1"), 1)
+	CFLAGS += -DKEY_MAPPINGS_DEFINED
+endif
+
 # Linker directives.
 LSCRIPT = ./ld/$(LD_SCRIPT)
 LFLAGS += -mcpu=$(MCU_SPEC)

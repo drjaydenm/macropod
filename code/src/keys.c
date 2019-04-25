@@ -55,6 +55,88 @@ uint8_t CharToKeyCode(char c)
         case ',': return KEY_COMMA;
         case '.': return KEY_DOT;
         case '/': return KEY_SLASH;
+        case '!': return KEY_1;
+        case '@': return KEY_2;
+        case '#': return KEY_3;
+        case '$': return KEY_4;
+        case '%': return KEY_5;
+        case '^': return KEY_6;
+        case '&': return KEY_7;
+        case '*': return KEY_8;
         default: return KEY_HASHTILDE;
+    }
+}
+
+uint8_t CharModifierKeys(char c)
+{
+    if (isalpha(c) && toupper(c) == c)
+    {
+        return KEY_MOD_LSHIFT;
+    }
+
+    switch (c)
+    {
+        case '!':
+        case '@':
+        case '#':
+        case '$':
+        case '%':
+        case '^':
+        case '&':
+        case '*':
+            return KEY_MOD_LSHIFT;
+        default:
+            return KEY_MOD_NONE;
+    }
+}
+
+uint8_t GetKeyContent(uint8_t key, char* buffer)
+{
+    char* MacroBuffer = buffer;
+
+    switch (key)
+    {
+        case KEY_MACRO_0:
+            return MACRO_KEY_0;
+        case KEY_MACRO_1:
+            return MACRO_KEY_1;
+        case KEY_MACRO_2:
+            return MACRO_KEY_2;
+        case KEY_MACRO_3:
+            return MACRO_KEY_3;
+        case KEY_MACRO_4:
+            return MACRO_KEY_4;
+        case KEY_MACRO_5:
+            return MACRO_KEY_5;
+        case KEY_MACRO_6:
+            return MACRO_KEY_6;
+        case KEY_MACRO_7:
+            return MACRO_KEY_7;
+        case KEY_MACRO_8:
+            return MACRO_KEY_8;
+        case KEY_MACRO_9:
+            return MACRO_KEY_9;
+        case KEY_MACRO_10:
+            return MACRO_KEY_10;
+        case KEY_MACRO_11:
+            return MACRO_KEY_11;
+        case KEY_MACRO_12:
+            return MACRO_KEY_12;
+        case KEY_MACRO_13:
+            return MACRO_KEY_13;
+        case KEY_MACRO_14:
+            return MACRO_KEY_14;
+        case KEY_MACRO_15:
+            return MACRO_KEY_15;
+        case KEY_MACRO_16:
+            return MACRO_KEY_16;
+        case KEY_MACRO_17:
+            return MACRO_KEY_17;
+        case KEY_MACRO_18:
+            return MACRO_KEY_18;
+        case KEY_MACRO_19:
+            return MACRO_KEY_19;
+        default:
+            return 0;
     }
 }

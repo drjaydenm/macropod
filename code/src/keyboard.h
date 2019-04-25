@@ -11,6 +11,7 @@
 #define REPORT_MAX_KEYS 6
 #define DEBOUNCE_MILLIS 30
 #define MACRO_KEY_DELAY 20
+#define POST_MACRO_DELAY 500
 
 typedef struct
 {

@@ -58,3 +58,6 @@ dkms.conf
 # VS Code files
 .vscode/.*
 .vscode/ipch
+
+# Project specific ignores
+key_mappings.h

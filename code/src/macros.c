@@ -25,3 +25,16 @@ uint8_t GenerateGuid(char* buffer)
 
     return guidLength;
 }
+
+uint8_t WriteString(char* buffer, char* str)
+{
+    uint8_t strLen = strlen(str);
+    strLen = strLen <= MACRO_BUFFER_SIZE ? strLen : MACRO_BUFFER_SIZE;
+
+    for (uint8_t i = 0; i < strLen; i++)
+    {
+        buffer[i] = str[i];
+    }
+
+    return strLen;
+}

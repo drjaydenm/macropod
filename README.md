@@ -2,6 +2,28 @@
 
 A basic macro keyboard built from the ground up
 
+## Configuring Macros
+
+To setup your own macro bindings, create a file `key_mappings.h` in the `code/src` directory with the below format. This file will be automatically detected and included in the build.
+
+When editing, be sure to do a clean build to ensure headers are re-included.
+
+```c
+#ifndef __KEY_MAPPINGS_H
+#define __KEY_MAPPINGS_H
+
+// This will generate a unique GUID following the V4 spec
+#define MACRO_KEY_0  GenerateGuid(MacroBuffer)
+
+// These output the given string
+#define MACRO_KEY_1  WriteString(MacroBuffer, "Macro 1")
+#define MACRO_KEY_2  WriteString(MacroBuffer, "Macro 2")
+#define MACRO_KEY_3  WriteString(MacroBuffer, "Macro 3")
+// And so on for the rest of the keys...
+
+#endif
+```
+
 ## Setup
 
 ### Install the GNU Toolchain for ARM Embedded Processors
@@ -10,7 +32,7 @@ The toolchain is required to compile for the STM32 target platform
 
 #### MacOS
 
-``` {.bash}
+```bash
 brew tap osx-cross/arm
 
 brew install arm-gcc-bin
@@ -18,7 +40,7 @@ brew install arm-gcc-bin
 
 If you are using ST-Link
 
-``` {.bash}
+```bash
 brew install stlink
 ```
 
@@ -28,25 +50,25 @@ If using J-Link, you also need to install the J-Link tools. You can download the
 
 Run the build
 
-``` {.bash}
+```bash
 make
 ```
 
 Flash to device using ST-Link
 
-``` {.bash}
+```bash
 make flash-stlink
 ```
 
 or using J-Link
 
-``` {.bash}
+```bash
 make flash-jlink
 ```
 
 Inspect memory layout of image
 
-``` {.bash}
+```bash
 arm-none-eabi-nm main.elf
 ```
 
@@ -54,19 +76,19 @@ arm-none-eabi-nm main.elf
 
 ### ST-Link GDB Server
 
-``` {.bash}
+```bash
 st-util
 ```
 
 ### J-Link GDB Server
 
-``` {.bash}
+```bash
 JLinkGDBServer -if swd -device STM32F042K6 -port 4242
 ```
 
 ### GDB
 
-``` {.bash}
+```bash
 cd ./code
 
 arm-none-eabi-gdb main.elf
