@@ -13,12 +13,12 @@ When editing, be sure to do a clean build to ensure headers are re-included.
 #define __KEY_MAPPINGS_H
 
 // This will generate a unique GUID following the V4 spec
-#define MACRO_KEY_0  GenerateGuid(MacroContext)
+#define MACRO_KEY_0  GenerateGuid(MacroContext);WriteString(MacroContext, "\e")
 
 // These output the given string
-#define MACRO_KEY_1  WriteString(MacroContext, "Macro 1");WriteString(MacroContext, "\e")
-#define MACRO_KEY_2  WriteString(MacroContext, "Macro 2");WriteString(MacroContext, "\e\n")
-#define MACRO_KEY_3  WriteString(MacroContext, "Macro 3");WriteString(MacroContext, "\e\t")
+#define MACRO_KEY_1  WriteString(MacroContext, "Macro 1\n")
+#define MACRO_KEY_2  GenerateGuid(MacroContext);WriteString(MacroContext, "\e\nMacro 2");
+#define MACRO_KEY_3  WriteString(MacroContext, "\t\tMacro 3")
 // And so on for the rest of the keys...
 
 #endif
