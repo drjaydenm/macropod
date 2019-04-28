@@ -10,64 +10,64 @@
 #endif
 
 #ifndef MACRO_KEY_0
-    #define MACRO_KEY_0 0
+    #define MACRO_KEY_0
 #endif
 #ifndef MACRO_KEY_1
-    #define MACRO_KEY_1 0
+    #define MACRO_KEY_1
 #endif
 #ifndef MACRO_KEY_2
-    #define MACRO_KEY_2 0
+    #define MACRO_KEY_2
 #endif
 #ifndef MACRO_KEY_3
-    #define MACRO_KEY_3 0
+    #define MACRO_KEY_3
 #endif
 #ifndef MACRO_KEY_4
-    #define MACRO_KEY_4 0
+    #define MACRO_KEY_4
 #endif
 #ifndef MACRO_KEY_5
-    #define MACRO_KEY_5 0
+    #define MACRO_KEY_5
 #endif
 #ifndef MACRO_KEY_6
-    #define MACRO_KEY_6 0
+    #define MACRO_KEY_6
 #endif
 #ifndef MACRO_KEY_7
-    #define MACRO_KEY_7 0
+    #define MACRO_KEY_7
 #endif
 #ifndef MACRO_KEY_8
-    #define MACRO_KEY_8 0
+    #define MACRO_KEY_8
 #endif
 #ifndef MACRO_KEY_9
-    #define MACRO_KEY_9 0
+    #define MACRO_KEY_9
 #endif
 #ifndef MACRO_KEY_10
-    #define MACRO_KEY_10 0
+    #define MACRO_KEY_10
 #endif
 #ifndef MACRO_KEY_11
-    #define MACRO_KEY_11 0
+    #define MACRO_KEY_11
 #endif
 #ifndef MACRO_KEY_12
-    #define MACRO_KEY_12 0
+    #define MACRO_KEY_12
 #endif
 #ifndef MACRO_KEY_13
-    #define MACRO_KEY_13 0
+    #define MACRO_KEY_13
 #endif
 #ifndef MACRO_KEY_14
-    #define MACRO_KEY_14 0
+    #define MACRO_KEY_14
 #endif
 #ifndef MACRO_KEY_15
-    #define MACRO_KEY_15 0
+    #define MACRO_KEY_15
 #endif
 #ifndef MACRO_KEY_16
-    #define MACRO_KEY_16 0
+    #define MACRO_KEY_16
 #endif
 #ifndef MACRO_KEY_17
-    #define MACRO_KEY_17 0
+    #define MACRO_KEY_17
 #endif
 #ifndef MACRO_KEY_18
-    #define MACRO_KEY_18 0
+    #define MACRO_KEY_18
 #endif
 #ifndef MACRO_KEY_19
-    #define MACRO_KEY_19 0
+    #define MACRO_KEY_19
 #endif
 
 // Modifier key codes
@@ -263,6 +263,6 @@
 
 uint8_t CharToKeyCode(char c);
 uint8_t CharModifierKeys(char c);
-uint8_t GetKeyContent(uint8_t key, char* buffer);
+void GetKeyContent(uint8_t key, MacroContext* context);
 
 #endif

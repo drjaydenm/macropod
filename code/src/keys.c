@@ -40,13 +40,15 @@ uint8_t CharToKeyCode(char c)
         case '8': return KEY_8;
         case '9': return KEY_9;
         case '0': return KEY_0;
-        case '\r': case '\n': return KEY_ENTER;
+        case '\b': return KEY_BACKSPACE;
+        case '\n': case '\r': return KEY_ENTER;
+        case '\e': return KEY_ESC;
         case '\t': return KEY_TAB;
         case ' ': return KEY_SPACE;
         case '-': return KEY_MINUS;
         case '=': return KEY_EQUAL;
-        case '(': return KEY_LEFTBRACE;
-        case ')': return KEY_RIGHTBRACE;
+        case '[': return KEY_LEFTBRACE;
+        case ']': return KEY_RIGHTBRACE;
         case '\\': return KEY_BACKSLASH;
         case '~': return KEY_HASHTILDE;
         case ';': return KEY_SEMICOLON;
@@ -63,6 +65,18 @@ uint8_t CharToKeyCode(char c)
         case '^': return KEY_6;
         case '&': return KEY_7;
         case '*': return KEY_8;
+        case '(': return KEY_9;
+        case ')': return KEY_0;
+        case '_': return KEY_MINUS;
+        case '+': return KEY_EQUAL;
+        case '{': return KEY_LEFTBRACE;
+        case '}': return KEY_RIGHTBRACE;
+        case '|': return KEY_BACKSLASH;
+        case ':': return KEY_SEMICOLON;
+        case '"': return KEY_APOSTROPHE;
+        case '<': return KEY_COMMA;
+        case '>': return KEY_DOT;
+        case '?': return KEY_SLASH;
         default: return KEY_HASHTILDE;
     }
 }
@@ -84,59 +98,91 @@ uint8_t CharModifierKeys(char c)
         case '^':
         case '&':
         case '*':
+        case '(':
+        case ')':
+        case '_':
+        case '+':
+        case '{':
+        case '}':
+        case ':':
+        case '"':
+        case '<':
+        case '>':
+        case '?':
+        case '|':
             return KEY_MOD_LSHIFT;
         default:
             return KEY_MOD_NONE;
     }
 }
 
-uint8_t GetKeyContent(uint8_t key, char* buffer)
+void GetKeyContent(uint8_t key, MacroContext* context)
 {
-    char* MacroBuffer = buffer;
+    MacroContext* MacroContext = context;
 
     switch (key)
     {
         case KEY_MACRO_0:
-            return MACRO_KEY_0;
+            MACRO_KEY_0;
+            return;
         case KEY_MACRO_1:
-            return MACRO_KEY_1;
+            MACRO_KEY_1;
+            return;
         case KEY_MACRO_2:
-            return MACRO_KEY_2;
+            MACRO_KEY_2;
+            return;
         case KEY_MACRO_3:
-            return MACRO_KEY_3;
+            MACRO_KEY_3;
+            return;
         case KEY_MACRO_4:
-            return MACRO_KEY_4;
+            MACRO_KEY_4;
+            return;
         case KEY_MACRO_5:
-            return MACRO_KEY_5;
+            MACRO_KEY_5;
+            return;
         case KEY_MACRO_6:
-            return MACRO_KEY_6;
+            MACRO_KEY_6;
+            return;
         case KEY_MACRO_7:
-            return MACRO_KEY_7;
+            MACRO_KEY_7;
+            return;
         case KEY_MACRO_8:
-            return MACRO_KEY_8;
+            MACRO_KEY_8;
+            return;
         case KEY_MACRO_9:
-            return MACRO_KEY_9;
+            MACRO_KEY_9;
+            return;
         case KEY_MACRO_10:
-            return MACRO_KEY_10;
+            MACRO_KEY_10;
+            return;
         case KEY_MACRO_11:
-            return MACRO_KEY_11;
+            MACRO_KEY_11;
+            return;
         case KEY_MACRO_12:
-            return MACRO_KEY_12;
+            MACRO_KEY_12;
+            return;
         case KEY_MACRO_13:
-            return MACRO_KEY_13;
+            MACRO_KEY_13;
+            return;
         case KEY_MACRO_14:
-            return MACRO_KEY_14;
+            MACRO_KEY_14;
+            return;
         case KEY_MACRO_15:
-            return MACRO_KEY_15;
+            MACRO_KEY_15;
+            return;
         case KEY_MACRO_16:
-            return MACRO_KEY_16;
+            MACRO_KEY_16;
+            return;
         case KEY_MACRO_17:
-            return MACRO_KEY_17;
+            MACRO_KEY_17;
+            return;
         case KEY_MACRO_18:
-            return MACRO_KEY_18;
+            MACRO_KEY_18;
+            return;
         case KEY_MACRO_19:
-            return MACRO_KEY_19;
+            MACRO_KEY_19;
+            return;
         default:
-            return 0;
+            return;
     }
 }

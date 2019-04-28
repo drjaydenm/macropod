@@ -7,7 +7,14 @@
 
 #define MACRO_BUFFER_SIZE 100
 
-uint8_t GenerateGuid(char* buffer);
-uint8_t WriteString(char* buffer, char* str);
+typedef struct
+{
+    char Content[MACRO_BUFFER_SIZE];
+    uint8_t Length;
+}
+MacroContext;
+
+void GenerateGuid(MacroContext* context);
+void WriteString(MacroContext* context, char* str);
 
 #endif

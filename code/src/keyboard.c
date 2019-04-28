@@ -50,10 +50,9 @@ const uint8_t keyCount = sizeof(keys) / sizeof(keys[0]);
 
 uint8_t macroKeyDown = 0;
 uint8_t macroStep = 0;
-uint8_t macroCount = 0;
 uint8_t macroNextKeySame = 0;
 uint32_t macroMillis = 0;
-char macroContent[MACRO_BUFFER_SIZE] = {0};
+MacroContext macroContext = {0};
 
 void SetupKeyboard() {
     static GPIO_InitTypeDef GPIO_InitStruct;
@@ -149,18 +148,18 @@ void BeginMacroKey(KeyboardKey key)
     macroKeyDown = key.Key;
     macroMillis = HAL_GetTick();
 
-    macroCount = GetKeyContent(key.Key, macroContent);
+    GetKeyContent(key.Key, &macroContext);
 }
 
 void EndMacroKey()
 {
     macroKeyDown = 0;
     macroStep = 0;
-    macroCount = 0;
+    macroContext.Length = 0;
     macroNextKeySame = 0;
 
     // Zero out the macro content
-    memset(macroContent, 0, MACRO_BUFFER_SIZE);
+    memset(macroContext.Content, 0, MACRO_BUFFER_SIZE);
 }
 
 void HandleStandardKeys()
@@ -205,17 +204,17 @@ void HandleMacroKey()
         return;
     }
 
-    if (!macroNextKeySame && macroStep < macroCount && currentTick - macroMillis > MACRO_KEY_DELAY)
+    if (!macroNextKeySame && macroStep < macroContext.Length && currentTick - macroMillis > MACRO_KEY_DELAY)
     {
-        report.Modifiers = CharModifierKeys(macroContent[macroStep]);
-        report.Keys[0] = CharToKeyCode(macroContent[macroStep]);
+        report.Modifiers = CharModifierKeys(macroContext.Content[macroStep]);
+        report.Keys[0] = CharToKeyCode(macroContext.Content[macroStep]);
         SendReport(&report);
 
         macroStep++;
         macroMillis = HAL_GetTick();
 
         // If the next and prev characters are the same, send a null report
-        if (macroStep < macroCount && macroContent[macroStep] == macroContent[macroStep - 1])
+        if (macroStep < macroContext.Length && macroContext.Content[macroStep] == macroContext.Content[macroStep - 1])
         {
             macroNextKeySame = 1;
         }
@@ -223,7 +222,7 @@ void HandleMacroKey()
         return;
     }
 
-    if (macroStep >= macroCount)
+    if (macroStep >= macroContext.Length)
     {
         SendNullReport();
 
