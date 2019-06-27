@@ -14,8 +14,8 @@
 #include "gpio_pin.h"
 #include "keyboard.h"
 
-#define FLASH_MILLIS 500
-#define QUICK_FLASH_MILLIS 50
+#define FLASH_MILLIS 2
+#define PAUSE_MILLIS 2500
 
 void SetupGPIO();
 void SystemClockConfig(void);

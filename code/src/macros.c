@@ -4,7 +4,7 @@ void GenerateGuid(MacroContext* context)
 {
     srand(HAL_GetTick());
     static const char *guidTemplate = "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx";
-    static const char *guidCharacters = "0123456789ABCDEF-";
+    static const char *guidCharacters = "0123456789abcdef-";
     uint8_t guidLength = strlen(guidTemplate);
     uint8_t contentStart = context->Length;
 

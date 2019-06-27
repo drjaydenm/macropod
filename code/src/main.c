@@ -10,19 +10,23 @@ int main()
     SetupKeyboard();
 
     uint32_t lastFlashMillis = HAL_GetTick();
-    uint32_t flashMillis = FLASH_MILLIS;
+    uint32_t lastPauseMillis = HAL_GetTick();
     while (1)
     {
         ScanKeyboard();
         UpdateKeyboard();
 
-        flashMillis = AnyKeyDown == 1 ? QUICK_FLASH_MILLIS : FLASH_MILLIS;
-
         uint32_t millis = HAL_GetTick();
-        if (millis - lastFlashMillis >= flashMillis)
+        if (millis - lastPauseMillis >= PAUSE_MILLIS)
         {
-            lastFlashMillis = millis;
-            HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_10);
+            HAL_GPIO_WritePin(GPIOA, GPIO_PIN_10, GPIO_PIN_SET);
+
+            if (millis - lastFlashMillis >= PAUSE_MILLIS + FLASH_MILLIS)
+            {
+                lastPauseMillis = millis;
+                lastFlashMillis = millis;
+                HAL_GPIO_WritePin(GPIOA, GPIO_PIN_10, GPIO_PIN_RESET);
+            }
         }
     }
 }
